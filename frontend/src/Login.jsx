@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ClerkProvider, SignedIn, SignIn,SignedOut, useUser } from '@clerk/clerk-react';
-import { BrowserRouter, Navigate, Route, Routes, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Navigate, redirect, Route, Routes, useNavigate } from 'react-router-dom';
 
 
 // Replace with your actual Clerk publishable key from your Clerk dashboard.
@@ -15,7 +15,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (isSignedIn) {
-      navigate("/dashboard", { replace: true });
+      redirect("/dashboard", { replace: true });
     }
   }, [isSignedIn]);
   
@@ -24,6 +24,9 @@ const LoginPage = () => {
       <SignedOut>
         <SignIn />
       </SignedOut>
+      <SignedIn>
+        <Navigate to="/dashboard" replace />
+      </SignedIn>
     </div>
   );
 };

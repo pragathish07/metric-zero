@@ -56,7 +56,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'backend','static')],
+        'DIRS': [os.path.join(BASE_DIR, 'frontend','html')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,6 +124,7 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = str(BASE_DIR / 'static')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
